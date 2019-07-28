@@ -1,4 +1,6 @@
-const randomBackgroundColor = (element) => {
+let clicks = 0;
+
+const randomBackgroundColor = (element, clicks) => {
   const letters = "0123456789ABCDEF";
   let color = '#';
   for (var i = 0; i < 6; i++) {
@@ -6,11 +8,16 @@ const randomBackgroundColor = (element) => {
   }
   console.log(color)
   element.style.background = color
-  const colorName = document.getElementById("color")
-  colorName.innerHTML = color
+  insertElementWith(clicks, color)
 };
 
-let clicks = 0;
+const insertElementWith = (step, color) => {
+  const table = document.getElementById("steps")
+  const paragraph = document.createElement("tr")
+  paragraph.innerHTML = `<td>${step} ${color}</td>`
+  table.appendChild(paragraph)
+}
+
 
 const clickCounter = (element, clicks) => {
   element.innerHTML = clicks
@@ -18,12 +25,12 @@ const clickCounter = (element, clicks) => {
 
 document.addEventListener("DOMContentLoaded",(e) => {
   const square = document.getElementById("square");
-  randomBackgroundColor(square)
+  randomBackgroundColor(square, clicks)
   clickCounter(square, clicks);
   if (square) {
     square.addEventListener('click', (e) => {
       clicks++
-      randomBackgroundColor(square);
+      randomBackgroundColor(square, clicks);
       clickCounter(square, clicks);
     });
   }
