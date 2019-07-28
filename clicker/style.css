@@ -22,5 +22,5 @@
 
 tr td { border-top: thin solid black; }
 tr td { border-bottom: thin solid black; }
-tr td:first-child { border-left: thin solid black; }
-tr td:last-child { border-right: thin solid black; }
+tr td:first-child { border: thin solid black; }
+tr td:last-child { border: thin solid black; }

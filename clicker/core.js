@@ -14,7 +14,7 @@ const randomBackgroundColor = (element, clicks) => {
 const insertElementWith = (step, color) => {
   const table = document.getElementById("steps")
   const paragraph = document.createElement("tr")
-  paragraph.innerHTML = `<td>${step} ${color}</td>`
+  paragraph.innerHTML = `<td>${step}</td><td>${color}</td>`
   table.appendChild(paragraph)
 }
 
