@@ -4,7 +4,10 @@ const randomBackgroundColor = (element) => {
   for (var i = 0; i < 6; i++) {
     color += letters[(Math.floor(Math.random() * 16))]
   }
+  console.log(color)
   element.style.background = color
+  const colorName = document.getElementById("color")
+  colorName.innerHTML = color
 };
 
 let clicks = 0;
